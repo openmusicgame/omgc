@@ -1,10 +1,30 @@
-# 谱面定义
+
+# OMGC谱面格式
+
+## 文件格式
+
+OMGC谱面只提供数据结构定义，实际储存格式并无具体限制。
+* 纯谱面
+
+    一般可以用XML、JSON、JSON5或者YAML来存储纯文本结构，必要时也可采用INI、TOML或者RESP协议等其他可以包含嵌套结构的纯文本格式，但不应该使用Protobuff、MessagePack等二进制序列化格式。
+
+    纯谱面文件名为 `*.omgc.<format suffix>`，例如mymusic.omgc.json，对应的MIME类型为`application/omgc+json`。
+    
+* 包含歌曲，封面等的二进制打包谱面
+
+    推荐使用基于**开放打包约定**(Open Packaging Conventions, OPC)，或者**开放容器格式**(Open Container Format, OCF)等的自描述容器格式，储存标准ZIP压缩文件。纯文本谱面文件必须位于容器的根目录中，以便于在没有容器结构解析工具的情况下找到谱面本体。
+
+    打包谱面可以通过添加签名校验、证书认证、数字水印、文件自定义属性等方式进行版权声明和授权验证，但不能使用创建解压密码等方式阻止文件内容读取。
+
+    二进制谱面文件名为 `*.omgb`，例如mymusic.omgb，对应的MIME类型为`application/omgb+zip`
+---
+## 谱面定义
 
 OMGC谱面可以使用JSON、XML或者YAML等多种格式储存，考虑到JSON的繁琐以及YAML缩进带来的语义不明确，下文所有的示例均以`JSON5`格式进行描述。
 
 OMGC谱面兼容kubernetes的通用资源定义，也就是说甚至可以将YAML格式的谱面作为CRD导入k8s集群中！关于k8s资源定义的细节可以查看[此处](https://kubernetes.io/docs/reference/kubernetes-api/common-definitions/)。
 
-## 0. 基本规则说明
+## 基本格式说明
 
 ### 0.1. 类型说明
 
@@ -37,6 +57,7 @@ OMGC谱面兼容kubernetes的通用资源定义，也就是说甚至可以将YAM
 
 为了便于区别，通用标签不设前缀，和游戏相关的标签请使用游戏包名作为前缀，自己设的私有标签请自行添加前缀。
 
+---
 
 ## 1. 基本结构
 
