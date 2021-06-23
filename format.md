@@ -130,6 +130,7 @@ OMGC谱面兼容kubernetes的通用资源定义，也就是说甚至可以将YAM
     * string `author`：谱面作者
     * string `description`：谱面描述
     * string `license`：许可协议，例如`MIT`、`CC BY-NC-SA 4.0`
+    * string `cover`：曲绘图片地址，默认为歌曲封面地址
     * string[] `keywords`：关键字，用于搜索
     * string `repository`：项目地址，可以填Git地址或者谱面网站的详情地址
     * string `level`：等级，例如`8.5`、`☆☆☆`或`?`
@@ -164,15 +165,15 @@ OMGC谱面兼容kubernetes的通用资源定义，也就是说甚至可以将YAM
         * string! `uid`：歌曲的全局唯一标识ID，必填，由工具自动生成。
         * string `file`：文件地址，可以是文件的路径，也可以是http等其他形式可以被工具解析的URL。
         
-            如果是文件路径，统一使用`/`进行目录分隔，使用`..`代表上级目录。不能以根目录或盘符开头，或者其他固定位置的路径。
-        * string `cover`：主要封面/曲绘图片地址，有多个曲绘的，请存放在扩展字段
+            如果是文件路径，不能使用`\`进行目录分隔。用`..`代表上级目录。不能以根目录或盘符开头，或者其他固定位置的路径。
+        * string `cover`：封面地址（不是曲绘！）
         * Dictionary\<number> `bpms`： BPM值，必填，键为每个BPM值开始时刻的毫秒数，值为BPM的值。匀速歌曲填一个值，变速歌曲按每一段不同的速度列出
         * number `length`： 歌曲长度，必填，以毫秒为单位
         * Dictionary\<string> `artists`： 艺术家信息，多个人用英文逗号分隔，可以增加字段
             * `lyricist`：作词
             * `composer`：作曲
             * `arranger`：编曲
-            * `singer`：演唱
+            * `vocal`：演唱
             * `featuring`：feat.
 
     2. string `readme`：readme文件的地址，默认会查找同文件夹下名为`README`或者`README.md`的文件
