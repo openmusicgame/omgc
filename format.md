@@ -91,7 +91,7 @@ OMGC谱面兼容kubernetes的通用资源定义，也就是说甚至可以将YAM
 
 ```json5
 {
-    apiVersion: "omgc.io/v1",
+    apiVersion: "omgc.io/v1alpha",
     kind: "Chart"
 }
 
@@ -103,7 +103,7 @@ OMGC谱面兼容kubernetes的通用资源定义，也就是说甚至可以将YAM
 ```json5
 {
     metadata: {
-        name: "test_MyChart-v1"
+        name: "test_mychart-v1-0"
     }
 }
 
@@ -148,7 +148,7 @@ OMGC谱面兼容kubernetes的通用资源定义，也就是说甚至可以将YAM
     |preserved.source|string|标识从什么游戏/网站导入此谱面|
     |preserved.creator|string|标识使用什么工具制作此谱面|
     |keyCount|number|有轨下落式的键/轨道数|
-    |type|string|玩法，默认key|key：有轨<br/>slide：无轨<br/>taiko：太鼓<br/>catch：Malody的接盘子<br/>other：其它|
+    |type|string|推荐玩法，默认key。实际游玩可以不按照推荐玩法强制转换|piano：钢琴<br/>key：有轨下落式<br/>slide：无轨下落式<br/>taiko：太鼓<br/>appear：出现式/扫线式<br/>through：穿越式/第一人称<br/>combined：混合型(如Arcaea)<br/>other：其它|
     |hasKeySound|boolean|谱面支持Key音（而不是普通按键音）|
     |isRandom|boolean|谱面支持随机|
 
