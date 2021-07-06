@@ -9,7 +9,8 @@ Open Music Game Chart，简称OMGC，是一个开放通用的音乐游戏谱面�
 ### 0. [建设背景](#背景)
 ### 1. [什么是广义下落式音游](fallingrhythmgame.md)
 ### 2. [OMGC谱面格式](format.md)
-### 3. [其它资源](#资源)
+### 3. [音符和其它时间线元素](timeline.md)
+### 4. [其它资源](#外部资源)
   
 ## 背景
 
@@ -37,3 +38,4 @@ Phigros的成功是短时间难以复刻的，而Malody带来的持续的玩家�
 ## 外部资源
 
 * [PhiFormat](https://phi-x.github.io/PhiFormat/)
+* [Cytoid](https://github.com/Cytoid/Cytoid)

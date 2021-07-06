@@ -98,7 +98,7 @@ OMGC谱面兼容kubernetes的通用资源定义，也就是说甚至可以将YAM
 ```
 ### 1.2. 资源元数据
 
-存放在`metadata`字段中，仅 `name`字段是必需的，用于唯一地标记一个谱面资源，只能包含大小写字母数字下划线和横杠。可以使用`labels`字段添加额外标签信息。
+存放在`metadata`字段中，仅 `name`字段是必需的，用于唯一地标记一个谱面资源。资源命名只能包含大小写字母数字下划线和横杠，具体规则参见[此处](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/architecture/identifiers.md)。可以使用`labels`字段添加额外标签信息。
 
 ```json5
 {
@@ -148,7 +148,7 @@ OMGC谱面兼容kubernetes的通用资源定义，也就是说甚至可以将YAM
     |preserved.source|string|标识从什么游戏/网站导入此谱面|
     |preserved.creator|string|标识使用什么工具制作此谱面|
     |keyCount|number|有轨下落式的键/轨道数|
-    |type|string|推荐玩法，默认key。实际游玩可以不按照推荐玩法强制转换|piano：钢琴<br/>key：有轨下落式<br/>slide：无轨下落式<br/>taiko：太鼓<br/>appear：出现式/扫线式<br/>through：穿越式/第一人称<br/>combined：混合型(如Arcaea)<br/>other：其它|
+    |mode|string|推荐玩法，默认key。实际游玩可以不按照推荐玩法强制转换|piano：钢琴<br/>key：有轨下落式<br/>slide：无轨下落式<br/>taiko：太鼓<br/>appear：出现式/扫线式<br/>through：穿越式/第一人称<br/>combined：混合型(如Arcaea)<br/>other：其它|
     |hasKeySound|boolean|谱面支持Key音（而不是普通按键音）|
     |isRandom|boolean|谱面支持随机|
 
@@ -190,3 +190,5 @@ OMGC谱面兼容kubernetes的通用资源定义，也就是说甚至可以将YAM
     存放在`attrs`字段中，用于描述谱面用到的特性细节，例如随机谱，变速，音符特效，判定线变换，场景切换，自带皮肤等等。这也是个扩展字段，特性由各自游戏本体支持，不同游戏所能支持的特性不同，因此同一谱面转换后效果存在差异，但所包含的信息不会丢失。
 
     特性声明具有`apiVersion`字段，由于需要对游戏能力进行抽象，特性值可能会在自定义特性和通用特性之间调整，区分版本号可以方便区分不同版本之间特性字段的差异
+
+    待补全...
