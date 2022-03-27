@@ -2,9 +2,7 @@
 
 OMGC谱面主体由时间线(Timeline)构成，其中包含了音符源控制器(Note Source Controller)，判断区域控制器(Judge Area Controller)，媒体控制器(Audio & Video Controller)，谱面效果(Effect)，游戏反馈(Feedback)等多种可动画元素(Animatable)。 每个谱面均有一条默认时间线，名称为`main`，但也可以定义多条时间线来组成故事版(Storyboard)，以完成更加精细的控制。
 
-时间线相比传统的简单音符容器，可以更方便地完成基于时间的控制，时停、倒退、延迟、变速、多BPM、多曲目、缓动(Ease)等等的设置，就和使用普通音视频编辑工具一样容易。
-
-另外，在OMGC中空间（坐标系统）和时间一样也是一等公民，可以将效果、坐标和时间线结合，成为制作观赏谱的有力工具。
+时间线相比传统的简单音符容器，可以更方便地完成基于时间的控制，时停、倒退、延迟、变速、多BPM、多曲目、缓动(Ease)等等的设置。
 
 ## 成员关系
 
@@ -46,7 +44,6 @@ OMGC谱面主体由时间线(Timeline)构成，其中包含了音符源控制器
             * ModeChange 更改模式
             * Fever 触发Fever 
         * GameControl 对宿主游戏本体进行控制，例如各种彩蛋谱面
-        * \<ObjectType>Animation 针对各种类型的属性提供的变换，例如变色，修改透明度，修改移动路径等等
     * UIElement 界面元素
         * TextBlock （富）文本块
         * Image 图像
@@ -56,6 +53,8 @@ OMGC谱面主体由时间线(Timeline)构成，其中包含了音符源控制器
             * Feedback 游戏反馈
             * Script 脚本
         * Timer 计时器
+    * KeyFrame 关键帧
+    * PropertyAnimator 针对对象的属性进行修改
     * Timeline 时间线
         * MediaTimeline 媒体时间线
             * AudioController 音频控制器
@@ -63,9 +62,6 @@ OMGC谱面主体由时间线(Timeline)构成，其中包含了音符源控制器
             * DeviceController 设备控制器
         * ParallelTimeline 并行时间线
             * Storyboard 故事版
-            * EffectGroup 效果组
-            * NoteGroup 音符组
-            * MusicGroup 曲目组
         * NoteSourceController 音符源控制器
         * JudgeAreaController 判定区域控制器
         * HitAreaController 打击区域控制器
